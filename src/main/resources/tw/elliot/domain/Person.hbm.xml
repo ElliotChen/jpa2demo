@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 18, 2011 2:43:10 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="tw.elliot.domain">
+    <union-subclass name="Person" extends="Identify" table="JPA_PERSON" lazy="false">
+        <property name="name" type="string">
+            <column name="NAME" />
+        </property>
+        <property name="rocId" type="string">
+            <column name="ROCID" />
+        </property>
+        <property name="birthday" type="date">
+            <column name="BIRTHDAY" />
+        </property>
+        <property name="age" type="integer">
+            <column name="AGE" />
+        </property>
+        <property name="adult" type="yes_no">
+            <column name="ADULT" />
+        </property>
+        <property name="gender">
+            <column name="GENDER" />
+            <type name="org.hibernate.type.EnumType">
+                <param name="type">12</param>
+                <param name="enumClass">tw.elliot.domain.Gender</param>
+            </type>
+        </property>
+    </union-subclass>
+</hibernate-mapping>
